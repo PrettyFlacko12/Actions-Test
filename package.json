@@ -1,0 +1,12 @@
+json
+{
+  "name": "simple-web-app",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "echo 'Building the web app'",
+    "deploy": "echo 'Deploying the web app'"
+  },
+  "devDependencies": {
+    "dotenv": "^10.0.0"
+  }
+}
