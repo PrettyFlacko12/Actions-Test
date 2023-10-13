@@ -1,0 +1,59 @@
+html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Web App</title>
+  <style>
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .button {
+      width: 200px;
+      height: 200px;
+      background-color: red;
+      border-radius: 50%;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <button class="button" onclick="handleButtonClick()">Click me</button>
+  </div>
+
+  <script>
+    function handleButtonClick() {
+      const userId = getUserID(); // Replace with your logic to get the user ID
+      const ipAddress = getIPAddress(); // Replace with your logic to get the IP address
+
+      fetch('/api/record', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ userId, ipAddress })
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Data recorded:', data);
+      })
+      .catch(error => {
+        console.error('Error recording data:', error);
+      });
+    }
+
+    function getUserID() {
+      // Replace with your logic to get the user ID
+      return 123;
+    }
+
+    function getIPAddress() {
+      // Replace with your logic to get the IP address
+      return '127.0.0.1';
+    }
+  </script>
+</body>
+</html>
